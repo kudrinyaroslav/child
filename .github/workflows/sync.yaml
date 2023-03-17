@@ -26,7 +26,7 @@ jobs:
       run: |
         cp -r ./template/* ./child/
     - name: Commit changes
-        run:|
+      run: |
           cd child
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
