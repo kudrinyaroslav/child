@@ -16,7 +16,6 @@ jobs:
           
       - name: Copy files to child
         run: |
-          cd ..
           ls
           
 #       - name: Checkout child
