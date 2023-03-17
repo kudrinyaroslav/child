@@ -13,7 +13,7 @@ jobs:
         repository: kudrinyaroslav/template
         ref: main
         fetch-depth: 0
-        path: ./template
+#        path: ./template
 #     - name: Checkout template
 #       uses: actions/checkout@v2
 #       with:
