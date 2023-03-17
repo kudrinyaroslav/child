@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: kudrinyaroslav/child
-        ref: main
+        ref: child
         fetch-depth: 0
         path: ./child
     - name: Copy files to child
@@ -45,4 +45,4 @@ jobs:
         body: "This PR copies the necessary files from template to child"
         draft: false
         path: ./child
-        base: main
+#        base: main
