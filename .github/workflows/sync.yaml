@@ -22,15 +22,17 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         eval $(ssh-agent)
         ssh-add ~/.ssh/id_rsa
-    - name: Create brunch
-      run: |
-        git checkout -b sync-branch
-        git push -u origin sync-branch
-    - name: Create pull request
+        
+    - name: Create a new branch in child repository
       uses: peter-evans/create-pull-request@v3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: 'Sync with template'
-        branch: sync-branch
-        title: 'Sync with template'
-        body: 'This pull request syncs the child repo'
+        branch: sync-with-template
+        commit-message: Update child repository with changes from template
+        title: Sync with template
+        body: |
+          This pull request was automatically generated.
+        labels: sync-with-template
+        reviewers: ''
+        assignees: ''
+        base: main
+        head: template-kudrinyaroslav:main
