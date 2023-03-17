@@ -1,5 +1,6 @@
 name: sync wiht template
 on:
+  push:
   schedule:
   - cron: '* * * * *'
 jobs:
