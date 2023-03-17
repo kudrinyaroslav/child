@@ -24,7 +24,7 @@ jobs:
         
     - name: Copy files to child
       run: |
-        ls
+        cp -r ./template/* ./child/
 #     - name: Commit changes
 #         run: |
 #           git config --local user.email "action@github.com"
