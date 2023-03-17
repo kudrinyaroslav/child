@@ -8,35 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout template
-        uses: actions/checkout@v2
-        with:
-          repository: kudrinyaroslav/template
-          ref: main
-          fetch-depth: 0
+        run:
+          git clone git clone git@github.com:kudrinyaroslav/template.git
+          git clone git@github.com:kudrinyaroslav/child.git
+          cp -r ./template/* ./child/
+          cd child
+          git checkout -b new-branch-name
+          git add .
+          git commit -m "Copy files from template to child"
           
-      - name: Copy files to child
-        run: |
-          ls
-          
-#       - name: Checkout child
-#         uses: actions/checkout@v2
-#         with:
-#           repository: kudrinyaroslav/child
-#           ref: main
-#           fetch-depth: 0
-          
-#       - name: Copy files to child
-#         run: |
-#           ls
-#           cp -r template/* child/
-          
-#       - name: Commit changes
-#         run: |
-#           git config --local user.email "action@github.com"
-#           git config --local user.name "GitHub Action"
-#           git checkout -b new-branch-name
-#           git add .
-#           git commit -m "Copy files from template to child"
           
 #       - name: Create pull request
 #         uses: peter-evans/create-pull-request@v3.10.0
