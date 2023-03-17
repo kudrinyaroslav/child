@@ -33,7 +33,7 @@ jobs:
           git checkout -b new-branch-name
           git add .
           git commit -m "Copy files from template to child"
-          cd ..
+          git push
           
           
     - name: Create pull request
@@ -45,4 +45,4 @@ jobs:
         body: "This PR copies the necessary files from template to child"
         draft: false
         path: ./child
-#        base: main
+        base: main
