@@ -23,8 +23,12 @@ jobs:
         path: ./child
         
     - name: Copy files to child
-      run: |
+      run: | 
+        ls
         cp -r ./template/* ./child/
+        ls child
+        cd child
+        git status
     - name: Commit changes
       run: |
           cd child
