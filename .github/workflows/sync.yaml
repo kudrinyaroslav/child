@@ -14,25 +14,25 @@ jobs:
         ref: main
         fetch-depth: 0
         path: ./template
-    - name: Checkout template
-      uses: actions/checkout@v2
-      with:
-        repository: kudrinyaroslav/child
-        ref: main
-        fetch-depth: 0
-        path: ./child
+#     - name: Checkout template
+#       uses: actions/checkout@v2
+#       with:
+#         repository: kudrinyaroslav/child
+#         ref: main
+#         fetch-depth: 0
+#         path: ./child
         
-    - name: Copy files to child
-      run: | 
-        cp -r ./template/* ./child/
-    - name: Commit changes
-      run: |
-          cd child
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git checkout -b new-branch-name
-          git add .
-          git commit -m "Copy files from template to child"
+#     - name: Copy files to child
+#       run: | 
+#         cp -r ./template/* ./child/
+#     - name: Commit changes
+#       run: |
+#           cd child
+#           git config --local user.email "action@github.com"
+#           git config --local user.name "GitHub Action"
+#           git checkout -b new-branch-name
+#           git add .
+#           git commit -m "Copy files from template to child"
           
           
     - name: Create pull request
