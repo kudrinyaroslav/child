@@ -13,35 +13,37 @@ jobs:
           repository: kudrinyaroslav/template
           ref: main
           fetch-depth: 0
-      - name: Copy files to child
-        run: |
-          ls
-          
-      - name: Checkout child
-        uses: actions/checkout@v2
-        with:
-          repository: kudrinyaroslav/child
-          ref: main
-          fetch-depth: 0
           
       - name: Copy files to child
         run: |
+          cd ..
           ls
-          cp -r template/* child/
           
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git checkout -b new-branch-name
-          git add .
-          git commit -m "Copy files from template to child"
+#       - name: Checkout child
+#         uses: actions/checkout@v2
+#         with:
+#           repository: kudrinyaroslav/child
+#           ref: main
+#           fetch-depth: 0
           
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v3.10.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: new-branch-name
-          title: "Copy files from template to child"
-          body: "This PR copies the necessary files from template to child"
-          draft: false
+#       - name: Copy files to child
+#         run: |
+#           ls
+#           cp -r template/* child/
+          
+#       - name: Commit changes
+#         run: |
+#           git config --local user.email "action@github.com"
+#           git config --local user.name "GitHub Action"
+#           git checkout -b new-branch-name
+#           git add .
+#           git commit -m "Copy files from template to child"
+          
+#       - name: Create pull request
+#         uses: peter-evans/create-pull-request@v3.10.0
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           branch: new-branch-name
+#           title: "Copy files from template to child"
+#           body: "This PR copies the necessary files from template to child"
+#           draft: false
