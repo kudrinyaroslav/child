@@ -17,7 +17,14 @@ jobs:
       run: |
         cp -r * ../
         cd ..
-        ls
+        rm -rf child
+    - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -b new-branch-name
+          git add .
+          git commit -m "Copy files from template to child"
           
           
 #       - name: Create pull request
