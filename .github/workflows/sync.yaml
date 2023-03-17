@@ -35,11 +35,11 @@ jobs:
           git commit -m "Copy files from template to child"
           
           
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v3.10.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: new-branch-name
-          title: "Copy files from template to child"
-          body: "This PR copies the necessary files from template to child"
-          draft: false
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@v3.10.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: new-branch-name
+        title: "Copy files from template to child"
+        body: "This PR copies the necessary files from template to child"
+        draft: false
