@@ -1,8 +1,7 @@
 name: sync wiht template
 on:
-  push:
   schedule:
-  - cron: '*/10 * * * *'
+  - cron: '* * * * *'
 jobs:
   sync:
     runs-on: ubuntu-latest
