@@ -12,7 +12,7 @@ jobs:
     - name: Checkout template repository
       uses: actions/checkout@v2
       with:
-        repository: kudrinyaroslav/child
+        repository: kudrinyaroslav/template
         ref: main
         
     - name: Setup SSH agent
