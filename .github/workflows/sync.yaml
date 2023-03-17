@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: kudrinyaroslav/child
-        ref: child
+        ref: main
         fetch-depth: 0
         path: ./child
     - name: Copy files to child
