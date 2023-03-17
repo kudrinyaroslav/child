@@ -32,8 +32,3 @@ jobs:
         branch: sync-branch
         title: 'Sync with template'
         body: 'This pull request syncs the child repo'
-    - name: Push changes to child repository
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git push -f git@github.com:kudrinyaroslav/child.git HEAD:main
