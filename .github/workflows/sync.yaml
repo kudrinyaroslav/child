@@ -24,6 +24,7 @@ jobs:
     - name: Copy files to child
       run: | 
        cp -r ./template/* ./child/
+       ls ./child
        
     - name: Commit changes
       run: |
