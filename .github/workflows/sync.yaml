@@ -24,6 +24,8 @@ jobs:
     - name: Copy files to child
       run: | 
         ls
+        cd ..
+        ls
 #        cp -r ./template/* ../
 #        rm -rf template
 #     - name: Commit changes
