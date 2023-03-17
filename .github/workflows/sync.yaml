@@ -1,38 +1,35 @@
-name: sync wiht template
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+name: Copy Files
+
 on:
   push:
-#   schedule:
-#   - cron: '*/10 * * * *'
+
 jobs:
-  sync:
+  copy-files:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout template repository
-      uses: actions/checkout@v2
-      with:
-        repository: kudrinyaroslav/template
-        ref: main
-        
-    - name: Setup SSH agent
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        eval $(ssh-agent)
-        ssh-add ~/.ssh/id_rsa
-        
-    - name: Create a new branch in child repository
-      uses: peter-evans/create-pull-request@v3
-      with:
-        branch: sync-with-template
-        commit-message: Update child repository with changes from template
-        title: Sync with template
-        body: |
-          This pull request was automatically generated.
-        labels: sync-with-template
-        reviewers: ''
-        assignees: ''
-        base: main
-        head: kudrinyaroslav:main
+      - name: Checkout template
+        uses: actions/checkout@v2
+        with:
+          repository: kudrinyaroslav/template
+          ref: main
+          
+      - name: Copy files to child
+        run: |
+          cp . .
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -b new-branch-name
+          git add .
+          git commit -m "Copy files from template to child"
+          
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3.10.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: new-branch-name
+          title: "Copy files from template to child"
+          body: "This PR copies the necessary files from template to child"
+          draft: false
