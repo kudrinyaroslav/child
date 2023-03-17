@@ -1,4 +1,6 @@
 name: sync wiht template
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 on:
   push:
   schedule:
