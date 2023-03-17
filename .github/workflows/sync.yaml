@@ -33,8 +33,7 @@ jobs:
           git checkout -b new-branch-name
           git add .
           git commit -m "Copy files from template to child"
-          git status
-          
+          cd ..
           
           
     - name: Create pull request
