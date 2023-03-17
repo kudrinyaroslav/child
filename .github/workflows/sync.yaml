@@ -12,11 +12,13 @@ jobs:
         with:
           repository: kudrinyaroslav/template
           ref: main
+          fetch-depth: 0
       - name: Checkout child
         uses: actions/checkout@v2
         with:
           repository: kudrinyaroslav/child
           ref: main
+          fetch-depth: 0
           
       - name: Copy files to child
         run: |
