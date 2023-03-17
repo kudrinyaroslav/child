@@ -35,4 +35,4 @@ jobs:
         reviewers: ''
         assignees: ''
         base: main
-        head: template-kudrinyaroslav:main
+        head: kudrinyaroslav:main
