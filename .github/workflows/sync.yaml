@@ -33,6 +33,7 @@ jobs:
           git checkout -b new-branch-name
           git add .
           git commit -m "Copy files from template to child"
+          ls
           git push --set-upstream origin new-branch-name
           
           
