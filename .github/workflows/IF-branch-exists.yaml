@@ -14,7 +14,8 @@ jobs:
     - name: Check if branch exists
       run: |
         cd child
-        if git branch -a | grep -q "refs/remotes/origin/new-branch-name"; then
-          git push origin --delete new-branch-name
-        fi
+        git push origin --delete new-branch-name
+#        if git branch -a | grep -q "refs/remotes/origin/new-branch-name"; then
+        
+#        fi
 
