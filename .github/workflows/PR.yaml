@@ -1,5 +1,7 @@
 name: Pull Request
 on: [workflow_dispatch]
+env:
+  GITHUB_TOKEN: secrets.GITHUB_TOKEN
 jobs:
   copy-files:
     runs-on: ubuntu-latest
