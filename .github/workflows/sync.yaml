@@ -23,10 +23,11 @@ jobs:
     - name: Check if branch exists
       run: |
         cd child
+        ls
+        git branch
         if git branch -a | grep -q "refs/remotes/origin/new-branch-name"; then
           git push origin --delete new-branch-name
         fi
-        ls
 
     - name: Copy files to child
       run: | 
