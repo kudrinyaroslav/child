@@ -39,9 +39,9 @@ jobs:
     - name: Checkout new-branch-name
       uses: actions/checkout@v3
       with:
-        repository: kudrinyaroslav/child
+#         repository: kudrinyaroslav/child
         ref: new-branch-name
-        fetch-depth: 0
+#         fetch-depth: 0
 #         path: ./new-branch-name
 
     - name: Create pull request
