@@ -1,6 +1,4 @@
-name: Copy Files
-on:
-  push:
+name: Pull Request
 
 jobs:
   copy-files:
