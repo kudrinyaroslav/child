@@ -47,6 +47,7 @@ jobs:
         draft: false
         path: ./child
         base: main
+        delete-branch: true
         body: |
             Update report
             - Updated with *today's* date
