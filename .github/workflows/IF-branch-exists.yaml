@@ -1,4 +1,4 @@
-name: Pull Request
+name: if branch exists
 on: [workflow_dispatch]
 env:
   GITHUB_TOKEN: secrets.GITHUB_TOKEN
