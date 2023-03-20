@@ -36,23 +36,3 @@ jobs:
           git commit -m "Copy files from template to child"
           ls
           git push --set-upstream origin new-branch-name
-      
-    - name: Checkout new-branhc-name
-      uses: actions/checkout@v3
-      with:
-        repository: kudrinyaroslav/child
-        ref: new-branch-name
-        fetch-depth: 0
-
-    - name: Create pull request
-      uses: peter-evans/create-pull-request@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        branch: new-branhc-name
-        title: "Copy files from template to child"
-        body: "This PR copies the necessary files from template to child"
-        draft: false
-        base: main
-        delete-branch: true
-        reviewers: ''
-        labels: ''
