@@ -36,14 +36,6 @@ jobs:
           git commit -m "Copy files from template to child"
           ls
           git push --set-upstream origin new-branch-name
-          
-#     - name: Checkout new-branch-name
-#       uses: actions/checkout@v3
-#       with:
-#         ref: new-branch-name
-#         repository: kudrinyaroslav/child
-#          fetch-depth: 0
-#          path: ./new-branch-name
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v4
