@@ -43,3 +43,6 @@ jobs:
           git commit -m "Copy files from template to child"
           ls
           git push --set-upstream origin new-branch-name
+    - name: Commit changes
+      run: |
+          curl -s -X POST -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/kudrinyaroslav/child/pulls" -d '{"head":"new-branch-name","base":"main","title":"Update from template repository"}'
