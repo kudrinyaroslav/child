@@ -42,15 +42,15 @@ jobs:
         repository: kudrinyaroslav/child
         ref: new-branch-name
         fetch-depth: 0
-        path: ./new-branch-name
+#         path: ./new-branch-name
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-        title: "Copy files from template to child"
-        body: "This PR copies the necessary files from template to child"
-        draft: false
-        path: ./new-branch-name
-        base: new-branch-name
+#       with:
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         branch: main
+#         title: "Copy files from template to child"
+#         body: "This PR copies the necessary files from template to child"
+#         draft: false
+#         path: ./new-branch-name
+#         base: new-branch-name
