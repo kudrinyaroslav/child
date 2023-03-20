@@ -1,5 +1,11 @@
 name: Copy Files
 on: [workflow_dispatch]
+env:
+  TEMPLATE_REPO_NAME: template
+  CHILD_REPO_NAME: child
+  TEMP_BRANCH_NAME: new-branch-name
+  CHILD_MAIN_BRANCH: main
+  REPOSITORY_OWNER: kudrinyaroslav
 jobs:
   copy-files:
     runs-on: ubuntu-latest
@@ -7,7 +13,7 @@ jobs:
     - name: Checkout template
       uses: actions/checkout@v3
       with:
-        repository: kudrinyaroslav/template
+        repository: ${{ env.REPOSITORY_OWNER }}/${{ env.TEMPLATE_REPO_NAME }}
         ref: main
         fetch-depth: 0
         path: ./template
@@ -15,15 +21,15 @@ jobs:
     - name: Checkout child
       uses: actions/checkout@v3
       with:
-        repository: kudrinyaroslav/child
+        repository: ${{ env.REPOSITORY_OWNER }}/${{ env.CHILD_REPO_NAME }}
         fetch-depth: 0
         path: ./child
         
     - name: Check if branch exists
       run: |
         cd child
-        if git branch -a | grep "origin/new-branch-name"; then
-         git push origin --delete new-branch-name
+        if git branch -a | grep "origin/${{ env.TEMP_BRANCH_NAME }}"; then
+         git push origin --delete ${{ env.TEMP_BRANCH_NAME }}
         fi
 
     - name: Copy files to child
@@ -38,11 +44,11 @@ jobs:
           cd child
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git checkout -b new-branch-name
+          git checkout -b ${{ env.TEMP_BRANCH_NAME }}
           git add .
           git commit -m "Copy files from template to child"
           ls
-          git push --set-upstream origin new-branch-name
+          git push --set-upstream origin ${{ env.TEMP_BRANCH_NAME }}
     - name: Commit changes
       run: |
-          curl -s -X POST -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/kudrinyaroslav/child/pulls" -d '{"head":"new-branch-name","base":"main","title":"Update from template repository"}'
+          curl -s -X POST -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${{ env.REPOSITORY_OWNER }}/${{ env.CHILD_REPO_NAME }}/pulls" -d '{"head":"${{ env.TEMP_BRANCH_NAME }}","base":"${{ env.CHILD_MAIN_BRANCH }}","title":"Update from template repository"}'
