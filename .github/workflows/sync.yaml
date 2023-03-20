@@ -13,6 +13,7 @@ jobs:
         ref: main
         fetch-depth: 0
         path: ./template
+        
     - name: Checkout child
       uses: actions/checkout@v3
       with:
