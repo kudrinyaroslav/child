@@ -1,0 +1,13 @@
+name: Pull Request
+on: [workflow_dispatch]
+env:
+  GITHUB_TOKEN: secrets.GITHUB_TOKEN
+jobs:
+  copy-files:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Commit changes
+      run: |
+        if git branch -a | grep -q "refs/remotes/origin/new-branch-name"; then
+          git push origin --delte new-branch-name
+        fi
