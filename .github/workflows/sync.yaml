@@ -45,5 +45,5 @@ jobs:
         title: "Copy files from template to child"
         body: "This PR copies the necessary files from template to child"
         draft: false
-        path: ./child
+#        path: ./child
         base: main
