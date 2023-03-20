@@ -41,6 +41,7 @@ jobs:
         repository: kudrinyaroslav/child
         ref: new-branch-name
         fetch-depth: 0
+        path: ./new-branch-name
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v4
@@ -50,5 +51,5 @@ jobs:
         title: "Copy files from template to child"
         body: "This PR copies the necessary files from template to child"
         draft: false
-#        path: ./child
+        path: ./new-branch-name
         base: main
