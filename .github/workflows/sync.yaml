@@ -19,12 +19,6 @@ jobs:
 #        ref: main
         fetch-depth: 0
         path: ./child
-        
-    - name: Check if branch exists
-      run: |
-        if git branch -a | grep -q "refs/remotes/origin/new-branch-name"; then
-          git push origin --delete new-branch-name
-        fi
 
     - name: Copy files to child
       run: | 
