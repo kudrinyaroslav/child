@@ -1,5 +1,5 @@
 name: Copy Files
-
+on: [workflow_dispatch]
 jobs:
   copy-files:
     runs-on: ubuntu-latest
