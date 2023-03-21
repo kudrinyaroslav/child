@@ -15,7 +15,7 @@ jobs:
       with:
         repository: ${{ env.REPOSITORY_OWNER }}/${{ env.TEMPLATE_REPO_NAME }}
         ref: main
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.SCOP_TOKEN }}
         fetch-depth: 0
         path: ./template
         
